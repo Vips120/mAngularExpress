@@ -1,0 +1,101 @@
+<div class="view full-page-intro">
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+      <div class="container">
+        <div class="row wow fadeIn">
+          <div class="col-md-6 mb-4 white-text text-center text-md-left">
+            <h1 class="display-4 font-weight-bold">LOGIN</h1>
+            <hr class="hr-light">
+            <p>
+              <strong>For the more information</strong>
+            </p>
+            <p class="mb-4 d-none d-md-block">
+              <strong>OR YOU CAN LOGIN ALSO! PLEASE CLICK ON BELOW BUTTON!</strong>
+            </p>
+            <button type="button" class="btn btn-outline-danger">
+                LOGIN
+            </button>
+          </div>
+          <div class="col-md-6 col-xl-5 mb-4">
+            <div class="card">
+              <div class="card-body">
+                
+                <form [formGroup]="userForm" (ngSubmit)="SubmitForm(userForm.value)">
+                    <p class="h4 text-center mb-4">Sign up</p>
+                    <div class="md-form">
+                    
+                       <input type="text"  class="form-control"
+                       formControlName="FirstName"
+                       [class.is-valid]="userForm.controls.FirstName.valid"
+                       [class.is-invalid]="!userForm.controls.FirstName.valid && submitted"
+                       >
+                       <label for="materialFormRegisterNameEx">Your first name</label>
+                    </div>
+
+                    <div class="md-form">
+                     
+                        <input type="text"  class="form-control"
+                        [class.is-valid]="userForm.controls.LastName.valid"
+                        [class.is-invalid]="!userForm.controls.LastName.valid && submitted"
+                        formControlName="LastName"
+                        >
+                        <label for="materialFormRegisterNameEx">Your last name</label>
+                     </div>
+                     
+                    <div class="md-form">
+                     
+                        <input type="text"  class="form-control"
+                        [class.is-valid]="userForm.controls.Address.valid"
+                        [class.is-invalid]="!userForm.controls.Address.valid && submitted"
+                        formControlName="Address"
+                        >
+                        <label for="materialFormRegisterNameEx">Your Address</label>
+                     </div>
+                     <div formGroupName="UserLogin">
+                    <div class="md-form">
+                     
+                       <input type="email" class="form-control"
+                       [class.is-valid]="userForm.controls.UserLogin.controls.EmailId.valid"
+                       [class.is-invalid]="!userForm.controls.UserLogin.controls.EmailId.valid && submitted"
+                       formControlName="EmailId"
+                       >
+                       <label for="materialFormRegisterEmailEx">Your email</label>
+                    </div>
+                    <div class="md-form">
+                      <input type="password" class="form-control"
+                      formControlName="Password"
+                      [class.is-valid]="userForm.controls.UserLogin.controls.Password.valid"
+                      [class.is-invalid]="!userForm.controls.UserLogin.controls.Password.valid && submitted"
+                    
+                      >
+                      <label>Your password</label>
+                    </div>
+                </div>
+                    <div class="text-center mt-4">
+                     <button class="btn btn-primary" type="submit">Register</button>
+                    </div>
+                 </form> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
