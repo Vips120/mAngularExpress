@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-primary sidebarNavigation" data-sidebarClass="navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary sidebarNavigation" data-sidebarClass="navbar-dark bg-dark" *ngIf="currentUser">
     <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler leftNavbarToggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
@@ -9,14 +9,26 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/home">Home
+                <a class="nav-link" routerLink="/home"
+                *ngIf="currentUser"
+                >Home
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/registration">Register</a>
+                <a class="nav-link" routerLink="/registration"
+                *ngIf="!currentUser"
+                >Register</a>
+            </li>
+        <li class="nav-item">
+     <h2 *ngIf="currentUser">Hello, {{currentUser.FirstName}} {{currentUser.LastName}}</h2>
+        </li>
+            <li class="nav-item">
+                <a class="nav-link" 
+                *ngIf="!currentUser"
+                routerLink="/login">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/login">Login</a>
+            <a class="nav-link" (click)="Logout()" *ngIf="currentUser"> Logout</a>
             </li>
         </ul>
     

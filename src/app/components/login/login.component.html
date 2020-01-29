@@ -1,1 +1,25 @@
-<p>login works!</p>
+<form [formGroup]="loginbyuser" (ngSubmit)="LoginUser(loginbyuser.value)" >
+    <div formGroupName="UserLogin">
+        <div class="md-form">
+         
+           <input type="email" class="form-control"
+           [class.is-valid]="loginbyuser.controls.UserLogin.controls.EmailId.valid"
+           [class.is-invalid]="!loginbyuser.controls.UserLogin.controls.EmailId.valid && submitted"
+           formControlName="EmailId"
+           >
+           <label for="materialFormRegisterEmailEx">Your email</label>
+        </div>
+        <div class="md-form">
+          <input type="password" class="form-control"
+          formControlName="Password"
+          [class.is-valid]="loginbyuser.controls.UserLogin.controls.Password.valid"
+          [class.is-invalid]="!loginbyuser.controls.UserLogin.controls.Password.valid && submitted"
+        
+          >
+          <label>Your password</label>
+        </div>
+    </div>
+        <div class="text-center mt-4">
+         <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+     </form> 
