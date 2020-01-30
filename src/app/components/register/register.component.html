@@ -27,8 +27,8 @@
                     
                        <input type="text"  class="form-control"
                        formControlName="FirstName"
-                       [class.is-valid]="userForm.controls.FirstName.valid"
-                       [class.is-invalid]="!userForm.controls.FirstName.valid && submitted"
+                       [class.is-valid]="userForm.get('FirstName').valid"
+                       [class.is-invalid]="!userForm.get('FirstName').valid && submitted"
                        >
                        <label for="materialFormRegisterNameEx">Your first name</label>
                     </div>
@@ -36,8 +36,8 @@
                     <div class="md-form">
                      
                         <input type="text"  class="form-control"
-                        [class.is-valid]="userForm.controls.LastName.valid"
-                        [class.is-invalid]="!userForm.controls.LastName.valid && submitted"
+                        [class.is-valid]="userForm.get('LastName').valid"
+                        [class.is-invalid]="!userForm.get('LastName').valid && submitted"
                         formControlName="LastName"
                         >
                         <label for="materialFormRegisterNameEx">Your last name</label>
@@ -46,31 +46,31 @@
                     <div class="md-form">
                      
                         <input type="text"  class="form-control"
-                        [class.is-valid]="userForm.controls.Address.valid"
-                        [class.is-invalid]="!userForm.controls.Address.valid && submitted"
+                        [class.is-valid]="userForm.get('Address').valid"
+                        [class.is-invalid]="!userForm.get('Address').valid && submitted"
                         formControlName="Address"
                         >
                         <label for="materialFormRegisterNameEx">Your Address</label>
                      </div>
                      <div formGroupName="UserLogin">
-                    <div class="md-form">
+                      <div class="md-form">
+         
+                        <input type="email" class="form-control"
+                        [class.is-valid]="userForm.get('UserLogin').get('EmailId').valid"
+                        [class.is-invalid]="!userForm.get('UserLogin').get('EmailId').valid && submitted"
+                        formControlName="EmailId"
+                        >
+                        <label for="materialFormRegisterEmailEx">Your email</label>
+                     </div>
+                     <div class="md-form">
+                       <input type="password" class="form-control"
+                       formControlName="Password"
+                       [class.is-valid]="userForm.get('UserLogin').get('Password').valid"
+                       [class.is-invalid]="!userForm.get('UserLogin').get('Password').valid && submitted"
                      
-                       <input type="email" class="form-control"
-                       [class.is-valid]="userForm.controls.UserLogin.controls.EmailId.valid"
-                       [class.is-invalid]="!userForm.controls.UserLogin.controls.EmailId.valid && submitted"
-                       formControlName="EmailId"
                        >
-                       <label for="materialFormRegisterEmailEx">Your email</label>
-                    </div>
-                    <div class="md-form">
-                      <input type="password" class="form-control"
-                      formControlName="Password"
-                      [class.is-valid]="userForm.controls.UserLogin.controls.Password.valid"
-                      [class.is-invalid]="!userForm.controls.UserLogin.controls.Password.valid && submitted"
-                    
-                      >
-                      <label>Your password</label>
-                    </div>
+                       <label>Your password</label>
+                     </div>
                 </div>
                     <div class="text-center mt-4">
                      <button class="btn btn-primary" type="submit">Register</button>

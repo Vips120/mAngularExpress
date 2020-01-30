@@ -3,8 +3,8 @@
         <div class="md-form">
          
            <input type="email" class="form-control"
-           [class.is-valid]="loginbyuser.controls.UserLogin.controls.EmailId.valid"
-           [class.is-invalid]="!loginbyuser.controls.UserLogin.controls.EmailId.valid && submitted"
+           [class.is-valid]="loginbyuser.get('UserLogin').get('EmailId').valid"
+           [class.is-invalid]="!loginbyuser.get('UserLogin').get('EmailId').valid && submitted"
            formControlName="EmailId"
            >
            <label for="materialFormRegisterEmailEx">Your email</label>
@@ -12,8 +12,8 @@
         <div class="md-form">
           <input type="password" class="form-control"
           formControlName="Password"
-          [class.is-valid]="loginbyuser.controls.UserLogin.controls.Password.valid"
-          [class.is-invalid]="!loginbyuser.controls.UserLogin.controls.Password.valid && submitted"
+          [class.is-valid]="loginbyuser.get('UserLogin').get('Password').valid"
+          [class.is-invalid]="!loginbyuser.get('UserLogin').get('Password').valid && submitted"
         
           >
           <label>Your password</label>
